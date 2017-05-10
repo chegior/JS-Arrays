@@ -9,7 +9,7 @@ function first(arr) {
   return arr[0];
 
 }
-
+first(arr);
 //Next problem
 
 
@@ -22,7 +22,7 @@ var arr = [40,50,60];
 function last(arr) {
   return arr[arr.length-1];
 }
-
+last(arr);
 //Next Problem
 
 
@@ -35,6 +35,7 @@ function looper(arr){
     alert(arr[i]);
   }
 }
+looper(family);
 
 //Next problem
 
@@ -50,7 +51,7 @@ function reversedLooper(arr) {
   }
 
 }
-
+reversedLooper(letters);
 //Next Problem
 
 
@@ -58,8 +59,14 @@ var nums = [1,2,3,6,22,98,45,23,22,12];
 //Write a function named evenFinder that is given nums as it's only argument and removes all values that aren't even from the given array.
 
   //Code Here
-
-
+function evenFinder(arr){
+  for (var i = 0; i < arr.length; i++){
+    if(arr[i] % 2 !== 0){
+      arr.splice(i,1);
+    }
+  }
+}
+evenFinder(nums);
 //Next problem
 
 
