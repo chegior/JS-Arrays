@@ -31,7 +31,7 @@ var family = ['Tyler', 'Jordyn', 'Ryan', 'Chelsey', 'Ireland'];
 
   //Code Here
 function looper(arr){
-  for ( var = i; i < arr.length; i++){
+  for ( var i = 0; i < arr.length; i++){
     alert(arr[i]);
   }
 }
@@ -155,6 +155,17 @@ var myGroceryList = ['chips', 'pizza', 'hotpockets', 'MtnDew', 'corndogs'];
 */
 
   //Code Here
+function removeItem ( arr, item){
+  arr.splice(arr.indexOf(item),1);
+  return arr;
+
+}
+ function addItem ( arr, item){
+   arr.push(item);
+   return arr;
+ }
+
+removeItem(myGroceryList,'chips');
 
 //removeItem(myGroceryList, 'chips') --> ['pizza', 'hotpockets', 'MtnDew', 'corndogs'];
 //addItem(myGroceryList, 'Jerky') --> ['pizza', 'hotpockets', 'MtnDew', 'corndogs', 'Jerky'];
@@ -169,8 +180,14 @@ var myGroceryList = ['chips', 'pizza', 'hotpockets', 'MtnDew', 'corndogs'];
 
   //Code Here
 
-
-
+function maker (){
+  var arr = [];
+  for ( var i = 0; i < 215; i++){
+    arr.push(i+1);
+  }
+  return arr;
+}
+maker();
 //Next Problem
 
 
@@ -180,6 +197,15 @@ var numbers = [5, '9', 16, 19, '25', '34', 48];
 
   //Code Here
 
+function addTen(arr){
+  for ( var i = 0; i < arr.length; i++){
+    if( arr[i] < 10){
+      arr[i] = parseInt(arr[i]) + 10;
+    }
+  }
+  return arr;
+}
+addTen(numbers);
 
 
 //Next Problem
