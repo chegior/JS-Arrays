@@ -209,7 +209,7 @@ describe('arraysPractice', function () {
 			//could be passed numbers as numbers or strings
 			var arr = [1, '2', 3];
 			var expected = [11, 12, 13];
-			expect(addTen(arr)).toEqual(expected);	
+			expect(addTen(arr)).toEqual(expected);
 		})
 	})
 	describe('longer', function () {
@@ -265,8 +265,8 @@ describe('arraysPractice', function () {
 	})
 	describe('users', function () {
 		it('should exist and contain items', function () {
-			expect(devMountainEmployees).toBeDefined();
-			expect(devMountainEmployees.length).not.toBe(0);
+			expect(users).toBeDefined();
+			expect(users.length).not.toBe(0);
 		})
 		it('(when complete) should not contain Tyler', function () {
 			var hasTyler = false;

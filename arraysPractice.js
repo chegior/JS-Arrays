@@ -46,7 +46,7 @@ var letters = ['A', 'B', 'C', 'D', 'E'];
 
   //Code Here
 function reversedLooper(arr) {
-  for ( var i = arr.lentgh -1 ; i >= 0; i--){
+  for ( var i = arr.length -1 ; i >= 0; i--){
     alert(arr[i]);
   }
 
@@ -65,6 +65,7 @@ function evenFinder(arr){
       arr.splice(i,1);
     }
   }
+  return arr;
 }
 evenFinder(nums);
 //Next problem
@@ -78,43 +79,57 @@ var numbersArray = [1,2,34,54,55,34,32,11,19,17,54,66,13];
 
 function divider (arr){
   var oddNums = [];
+  var eveNum = [];
+  var newArr = [];
   var temp = 0;
   for (var i = 0; i < arr.length; i++){
     if(arr[i] % 2 !== 0){
-      temp = arr.splice(i,1);
+
+      temp = arr[i];
       oddNums.push(temp);
+    }else
+    {
+      temp = arr[i];
+      eveNum.push(temp);
     }
   }
-  for ( var i = 0; i < oddNums.length; i++){
-    arr.push(oddNums[i]);
-  }
+
+  newArr.push(eveNum);
+  newArr.push(oddNums);
+
+  return newArr;
+
+
 
 }
 
+divider(numbersArray);
 //Next Problem
 
 
 var getRandomArbitrary = function() {
   return Math.floor(Math.random() * 30);
 };
-// var numbers = [0,3,4,5,6,7,9,14,17,24,25,26,29,30];
+var numbers = [0,3,4,5,6,7,9,14,17,24,25,26,29,30];
 //Above you're given a function that will return a random number between 0 and 30.  There is also a commented out array full of numbers to help you visualize what your function will be receiving.
 
 // Your job is to write a function named finder that will get a random number (by invoking getRandomArbitrary), then loop through the array (that will be passed in as a parameter) to see if that random number is in the array. If it is, return true, if it's not, return false
 
   //Code Here
-function finder(arr){
-  var ranNum = getRandomArbitrary();
-  for (var i = 0; i < arr.length; i++){
-    if ( arr[i] === ranNum)
-    {
-      return true;
-    }else{
-      return false;
+  function finder(arr){
+    var ranNum = getRandomArbitrary();
+    var flag = false;
+    for (var i = 0; i < arr.length; i++){
+      if ( arr[i] === ranNum)
+      {
+        flag = true;
+      }else{
+        flag = false;
+      }
     }
+    return flag;
   }
-}
-  //Code Here
+    //Code Here
   finder(numbers);
 
 
@@ -127,14 +142,10 @@ var str = 'this is my sentence';
 
   //Code Here
   function reverse(string){
-    var arr = [];
-    arr = string.split(" ");
-    arr = arr.reverse();
-
-    return arr.join(" ");;
+    return string.split('').reverse().join('');
   }
-  var revStr = reverse(str);
-  console.log(revStr);
+  reverse(str);
+
 //Next Problem
 
 
@@ -227,6 +238,13 @@ for(var i = 0; i < num2; i++){
 
   //Code Here
 
+function longer( arr1, arr2){
+  if(arr1.length > arr2.length){
+    return arr1;
+  }else {
+    return arr2;
+  }
+}
 
 /*As a continuation of the previous problem, write another function called 'both'.
   Your 'both' function will be given two arguments, arr1 and arr2 (from the previous example).
@@ -235,8 +253,23 @@ for(var i = 0; i < num2; i++){
 */
 
   //Code Here
+function both(arr1, arr2){
+  var newArr = [];
+  var longest = arr1;
+  var shortest = arr2;
+  if (arr1.length < arr2.length) {
+    longest = arr2;
+    shortest = arr1;
+  }
+ //console.log(shortest.indexOf(longest[i]));
+  for (var i = 0; i < longest.length; i++) {
+    if (shortest.indexOf(longest[i]) !== -1 && newArr.indexOf(longest[i]) === -1) {
+      newArr.push(longest[i]);
+    }
+  }
+  return newArr;
 
-
+}
 
 
 //NEXT PROBLEM
@@ -275,12 +308,21 @@ array with those four objects. After that console.log the length of the Array an
 sure that it's equal to 4. */
 
   //Code Here
+  devMountainEmployees.push(tyler, cahlan, ryan, colt);
+
+  console.log(devMountainEmployees.length);
+
 
 /*Now let's say Cahlan has a mental breakdown and has to take a leave of absence to 'find himself'.
 Loop through your devMountainEmployees until you find cahlan, then remove him from the array.*/
 
   //Code Here
-
+for( var i = 0; i < devMountainEmployees.length; i++){
+  if(devMountainEmployees[i].name === "Cahlan")
+  {
+    devMountainEmployees.splice(i,1);
+  }
+}
 
 
 
@@ -294,6 +336,8 @@ of Data is to have an Array full of objects. */
 
   //Code Here
 
+  var users = [];
+
 /*Now add three user objects to your users array. Each user object should contain the
 following properties. name, email, password, username.*/
 
@@ -304,9 +348,27 @@ var user1 = {
     password: 'iLoveJavaScript',
     username: 'infiniateLoop'
 };
+var user2 = {
+    name: 'Mike Smith',
+    email: 'm.smith@hotmail.com',
+    password: 'iLOveJavSC',
+    username: 'inounse'
+};
+var user3 = {
+    name: 'Charles Ferre',
+    email: 'cferrer@gmail.com',
+    password: 'print1234',
+    username: 'cferre'
+};
+var user4 = {
+    name: 'Mark Miller',
+    email: 'm_millers23@gmail.com',
+    password: 'myName99',
+    username: 'mm2432mm'
+};
 
 //Your Code Here
-
+users.push(user1,user2,user3,user4);
 /*Now you have a very common data structure. Twitter is a good use case.
 It's easy to imagine that your followers list on Twitter is an Array full or objects
 and those objects contain properties about the specific person you follow.*/
@@ -317,4 +379,11 @@ Once you find the particular index he's located in, delete him from the array.*/
 
   //Code Here
 
+  for ( var i = 0; i < users.length; i++){
+    if( users[i]["email"] === "tylermcginnis33@gmail.com"){
+      users.splice(i,1);
+    }
+  }
+
+console.log(users);
 //The activity we just did is very much how data works in 'the real world'.
